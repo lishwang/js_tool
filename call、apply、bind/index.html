@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="./my_fun.js"></script>
+</head>
+
+<body>
+  <script>
+    function add (a, b) {
+      console.log(this);
+      return a + b + this.c;
+    }
+
+    function add2 (a, b, d, e) {
+      console.log(this);
+      return a + b + this.c + d + e;
+    }
+
+    let obj = {
+      c: 521
+    }
+
+    window.c = 1314;
+
+    // my_call
+    let result1 = my_call(add, obj, 10, 20);
+    console.log(obj);
+    let result2 = my_call(add, null, 10, 20);
+    console.log(result1);
+    console.log(result2);
+
+    // my_apply
+    let result3 = my_apply(add, obj, [10, 20]);
+    console.log(obj);
+    let result4 = my_apply(add, null, [10, 20]);
+    console.log(result3);
+    console.log(result4);
+
+    // my_bind
+    let result5 = my_bind(add, obj, 10, 20);
+    console.log(obj);
+    console.log(result5()); // 551
+    let result6 = my_bind(add, null);
+    console.log(result6(10, 20)); // 1344
+    let result7 = my_bind(add2, null, 10, 20);
+    console.log(result7(30, 40)); // 1414
+  </script>
+</body>
+
+</html>
