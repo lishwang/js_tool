@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="./my_fun.js"></script>
+</head>
+
+<body>
+  <script>
+    let arr = [1, 2, 3, 4, 5];
+
+    // my_map
+    let result = my_map(arr, (item, index) => {
+      return item * index;
+    })
+    console.log(result);
+
+
+    // my_reduce
+    /** 实现数组arr的累加
+     * arr 原始数组
+     * res 回调函数的上一次的执行结果
+     * currentValue 正则遍历的原始数组中的当前的元素
+     * 0 初始值，可以自己设置为其他值
+    */
+    result = my_reduce(arr, (res, currentValue) => {
+      return res + currentValue;
+    }, 0)
+    console.log(result);
+
+
+    // my_filter
+    result = my_filter(arr, (item, index) => {
+      return item % 2 === 1;
+    })
+    console.log(result);
+
+
+    // my_find
+    result = my_find(arr, (item, index) => {
+      return item > 2;
+    })
+    console.log(result);
+
+
+    // my_findIndex
+    result = my_findIndex(arr, (item, index) => {
+      return item === 2;
+    })
+    console.log(result);
+
+
+    // my_every
+    result = my_every(arr, (item, index) => {
+      return item > 0;
+    })
+    console.log(result);
+
+
+    // my_some
+    result = my_some(arr, (item, index) => {
+      return item > 20;
+    })
+    console.log(result);
+
+
+    // my_unique 数组去重
+    let arr1 = [1, 2, 3, 2, 3, 78];
+    result = my_unique4(arr1)
+    console.log(result);
+
+
+    // my_concat
+    result = my_concat(arr, [7, 8], 9, 10);
+    console.log(result);
+
+
+    // my_slice
+    result = my_slice(arr, 1, -1);
+    console.log(result);
+
+
+    // my_flatten
+    let arr2 = [1, 2, [3, 4, [5]], 6, 7];
+    result = my_flatten2(arr2, 3, 2);
+    console.log(result);
+
+
+    // my_chunk
+    let arr3 = [1, 2, 3, 4, 5, 6, 7];
+    result = my_chunk(arr3, 3); // [[1, 2, 3], [4, 5, 6], 7]
+    console.log(result);
+
+
+    // my_diffence 得到当前数组arr4中所有不在arr5中的元素组成的数组(不改变原数组)
+    let arr4 = [1, 2, 3, 5];
+    let arr5 = [2, 3, 7];
+    result = my_diffence(arr4, arr5); // [1, 5]
+    console.log(result);
+
+
+    // my_pull 得到当前数组arr4中所有不在arr5中的元素组成的数组(不改变原数组)
+    let arr6 = [1, 2, 3, 5];
+    result = my_pull(arr6, 2, 3, 6);
+    console.log(arr6); // [1, 5]
+    console.log(result); // [2, 3]
+  </script>
+</body>
+
+</html>
