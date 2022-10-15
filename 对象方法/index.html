@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="./my_fun.js"></script>
+</head>
+
+<body>
+  <script>
+    function Person (name, age) {
+      this.name = name;
+      this.age = age;
+
+      // 根据构造函数的返回值类型的不同，new 出来的实例也不同****************
+      // 如果该构造函数返回数组、对象或者函数，则new 出来的实例也返回该数组、对象或者函数***********
+      // 否则则返回该构造函数new出来的实例对象（注意该实例对象的原型指向这个构造函数）
+      // return { a: 10 };
+      // return [1, 2];
+      // return function () { };
+      return 'aaaa';
+    }
+
+    // my_new
+    // 实例化 Person 构造函数（new）
+    // let wls = new Person('wls', 18);
+    let wls = my_new(Person, 'wls', 18);
+    console.log(wls);
+
+
+    // my_instanceof
+    // 判断构造函数的 prototype 属性是否出现在实例对象的原型链中的任何位置
+    // wls = new Person('wls', 18);
+    console.log(my_instanceof(wls, Person)); // true （结果跟Person构造函数的返回值也有关系）
+    console.log(my_instanceof(wls, Object)); // true
+    console.log(my_instanceof(Person, Object)); // true
+    console.log(my_instanceof(wls, Function)); // false
+    console.log(my_instanceof(Person, Function)); // true
+
+
+    // my_mergeObject
+    // 合并多个对象，属性名相同时属性值合并为一个数组
+    let obj1 = {
+      a: [{ x: 2 }],
+      b: 1,
+    };
+    let obj2 = {
+      a: 3,
+      b: 2,
+      c: '22'
+    }
+    let result = my_mergeObject(obj1, obj2);
+    console.log(result);
+
+
+    // 浅拷贝
+    let obj3 = { a: 1, b: { m: 1 } };
+    result = clone1(obj3);
+
+
+    // 深拷贝1
+    let obj4 = {
+      a: 1,
+      b: {
+        m: 'm',
+      },
+      c: [3],
+      d: function () {
+        console.log(111);
+      }
+    }
+    // 循环引用（1、不能用JSON处理，会报错；2、不能直接用递归拷贝，会栈溢出；）
+    obj4.c.push(obj4.b);
+    obj4.b.e = obj4.c;
+    console.log(obj4);
+
+    result = deepClone4(obj4);
+    console.log(result); // {a: 1,b:{m:'m'}.c:[3]}
+
+  </script>
+</body>
+
+</html>
