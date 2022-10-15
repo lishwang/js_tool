@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="../dist/wls_utils.js"></script>
+</head>
+
+<body>
+  <script>
+    // utils 来自webpack中的library配置，是打包后向外暴露的对象的名称，
+    // 打包后，引入 wls_utils.js 文件后，可以在全局直接使用 utils ，里面包含本次打包的入口文件内的导出的所有方法
+    console.log(utils);
+    console.log(utils.my_reduce([1, 2, 3], (res, currentValue) => {
+      return res + currentValue;
+    }, 0));
+    utils.test();
+  </script>
+</body>
+
+</html>

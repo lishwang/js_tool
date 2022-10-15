@@ -5,7 +5,7 @@
  * @param {*} callback 回调函数
  * @returns 创建一个新数组并返回这个新数组
  */
-function my_map (arr, callback) {
+export function my_map (arr, callback) {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
     let res = callback(arr[i], i);
@@ -22,7 +22,7 @@ function my_map (arr, callback) {
  * @param {*} initValue 初始值
  * @returns 返回最终运行结果，类型未知
  */
-function my_reduce (arr, callback, initValue) {
+export function my_reduce (arr, callback, initValue) {
   // 初始化返回值变量
   let result = initValue;
   for (let i = 0; i < arr.length; i++) {
