@@ -35,6 +35,9 @@
     // 自己实现事件委托
     my_addEventListener('.box', 'click', function (e) {
       console.log(e.target);
+      // this 指向事件源
+      console.log(this); // this默认指向window，修改this指向后，this指向事件源
+      console.log(this.innerHTML);
     }, 'li')
   </script>
 </body>
