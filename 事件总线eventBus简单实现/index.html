@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="./my_fun.js"></script>
+</head>
+
+<body>
+  <script>
+    // 事件绑定（同一事件可绑定多个事件处理程序）
+    eventBus.on('login', data => {
+      console.log(data + '登录')
+    })
+    eventBus.on('login', data => {
+      console.log(data + '在线')
+    })
+    eventBus.on('logout', data => {
+      console.log(data + '下线')
+    })
+
+    // 模拟事件触发
+    setTimeout(() => {
+      eventBus.emit('login', 'wls');
+    }, 2000);
+
+    // 事件解绑
+    eventBus.off('logout')
+    console.log(eventBus)
+  </script>
+</body>
+
+</html>
