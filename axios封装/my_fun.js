@@ -1,4 +1,5 @@
 
+// axios 方法封装
 function axios ({ method, url, params, data }) {
   // 方法转化大写
   method = method.toUpperCase();
@@ -23,7 +24,8 @@ function axios ({ method, url, params, data }) {
       // 设置请求头信息
       xhr.setRequestHeader('Content-type', 'application/json');
       // 设置请求体
-      xhr.send(JSON.stringify(data));
+      data = data ? JSON.stringify(data) : null;
+      xhr.send(data);
     } else {
       xhr.send();
     }
@@ -47,3 +49,13 @@ function axios ({ method, url, params, data }) {
     }
   })
 }
+
+
+// axios 对象封装
+const methodArr = ['get', 'post', 'put', 'delete'];
+methodArr.forEach(method => {
+  axios[method] = (url, options) => {
+    let config = Object.assign(options, { method: method, url: url, data: options.data || null });
+    return axios(config);
+  }
+})

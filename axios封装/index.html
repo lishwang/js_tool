@@ -17,6 +17,7 @@
 
 <body>
   <script>
+    // axios 函数使用
     axios({
       // 请求的类型
       method: 'POST',
@@ -31,6 +32,66 @@
         c: 300,
         d: 400
       },
+    }).then(response => {
+      console.log(response);
+    }).catch(reason => {
+      // 接收reject返回值
+      console.log(reason);
+    })
+
+
+    // axios对象使用 get
+    axios.get('http://123.207.32.32:8000/home/multidata', {
+      params: {
+        a: 100,
+        b: 200
+      }
+    }).then(response => {
+      console.log(response);
+    }).catch(reason => {
+      // 接收reject返回值
+      console.log(reason);
+    })
+
+
+    // axios对象使用 post
+    axios.post('http://123.207.32.32:8000/home/multidata', {
+      params: {
+        a: 100,
+        b: 200
+      },
+      data: {
+        c: 300,
+        d: 400
+      }
+    }).then(response => {
+      console.log(response);
+    }).catch(reason => {
+      // 接收reject返回值
+      console.log(reason);
+    })
+
+
+    // axios对象使用 put
+    axios.put('http://123.207.32.32:8000/home/multidata', {
+      params: {
+        a: 100,
+        b: 200
+      }
+    }).then(response => {
+      console.log(response);
+    }).catch(reason => {
+      // 接收reject返回值
+      console.log(reason);
+    })
+
+
+    // axios对象使用 delete
+    axios.delete('http://123.207.32.32:8000/home/multidata', {
+      params: {
+        a: 100,
+        b: 200
+      }
     }).then(response => {
       console.log(response);
     }).catch(reason => {
