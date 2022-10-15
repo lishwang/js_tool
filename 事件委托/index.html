@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script src="./my_fun.js"></script>
+</head>
+
+<body>
+  <ul class="box">
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+    <li>eee</li>
+    <div>mmm</div>
+  </ul>
+
+  <script>
+    // 原生事件委托函数
+    // const boxDom = document.querySelector('.box');
+    // boxDom.addEventListener('click', function (e) {
+    //   console.log(e.target);
+    // });
+
+    // 自己实现事件委托
+    my_addEventListener('.box', 'click', function (e) {
+      console.log(e.target);
+    }, 'li')
+  </script>
+</body>
+
+</html>
