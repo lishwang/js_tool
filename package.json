@@ -1,8 +1,8 @@
 {
-	"name": "tool",
-	"version": "1.0.0",
+	"name": "wlsjstool",
+	"version": "1.0.1",
 	"description": "",
-	"main": "index.js",
+	"main": "dist/wls_utils.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build:watch": "webpack --watch"
@@ -11,7 +11,18 @@
 		"type": "git",
 		"url": "git+https://github.com/lishwang/js_tool.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"atguigu",
+		"utils",
+		"array",
+		"object",
+		"function",
+		"string",
+		"axios",
+		"event-bus",
+		"pub-sub",
+		"promise"
+	],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
