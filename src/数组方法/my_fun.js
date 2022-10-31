@@ -40,7 +40,7 @@ export function my_reduce (arr, callback, initValue) {
  * @param {*} callback 回调函数
  * @returns 创建一个新数组并返回这个新数组
  */
-function my_filter (arr, callback) {
+export function my_filter (arr, callback) {
   // 初始化返回值变量
   let result = [];
   for (let i = 0; i < arr.length; i++) {
@@ -59,7 +59,7 @@ function my_filter (arr, callback) {
  * @param {*} callback 回调函数
  * @returns 返回数组中一个元素，或者undefined
  */
-function my_find (arr, callback) {
+export function my_find (arr, callback) {
   // 初始化返回值变量
   for (let i = 0; i < arr.length; i++) {
     // 执行回调，并存储当前回调的结果
@@ -80,7 +80,7 @@ function my_find (arr, callback) {
  * @returns 返回数组中一个元素的下标，或者-1
  * 注意：findIndex 传入一个回调函数；indexOf 传入一个数组的元素；两者返回值相同
  */
-function my_findIndex (arr, callback) {
+export function my_findIndex (arr, callback) {
   // 初始化返回值变量
   let result = -1;
   for (let i = 0; i < arr.length; i++) {
@@ -102,7 +102,7 @@ function my_findIndex (arr, callback) {
  * @param {*} callback 回调函数
  * @returns 返回布尔值
  */
-function my_every (arr, callback) {
+export function my_every (arr, callback) {
   for (let i = 0; i < arr.length; i++) {
     // 执行回调，并存储当前回调的结果
     let flag = callback(arr[i], i);
@@ -121,7 +121,7 @@ function my_every (arr, callback) {
  * @param {*} callback 回调函数
  * @returns 返回布尔值
  */
-function my_some (arr, callback) {
+export function my_some (arr, callback) {
   for (let i = 0; i < arr.length; i++) {
     // 执行回调，并存储当前回调的结果
     let flag = callback(arr[i], i);
@@ -139,7 +139,7 @@ function my_some (arr, callback) {
  * @param {*} arr 原数组
  * @returns 返回新数组
  */
-function my_unique (arr) {
+export function my_unique (arr) {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
     if (result.indexOf(arr[i]) === -1) {
@@ -156,7 +156,7 @@ function my_unique (arr) {
  * @param {*} arr 原数组
  * @returns 返回新数组
  */
-function my_unique2 (arr) {
+export function my_unique2 (arr) {
   let result = arr.filter((item, index, current_arr) => {
     return current_arr.indexOf(item) === index;
   })
@@ -170,7 +170,7 @@ function my_unique2 (arr) {
  * @param {*} arr 原数组
  * @returns 返回新数组
  */
-function my_unique3 (arr) {
+export function my_unique3 (arr) {
   let result = [];
   let obj = {};
   arr.forEach(item => {
@@ -190,7 +190,7 @@ function my_unique3 (arr) {
  * @param {*} arr 原数组
  * @returns 返回新数组
  */
-function my_unique4 (arr) {
+export function my_unique4 (arr) {
   // 将set集合转换为真实数组1
   // return [...new Set(arr)];
   // 将set集合转换为真实数组2
@@ -204,7 +204,7 @@ function my_unique4 (arr) {
  * @param {*} args 剩余参数
  * @returns 返回新数组
  */
-function my_concat (arr, ...args) {
+export function my_concat (arr, ...args) {
   let result = [...arr];
   args.forEach(item => {
     if (Array.isArray(item)) {
@@ -224,7 +224,7 @@ function my_concat (arr, ...args) {
  * @param {number} end 结束
  * @returns 返回新数组
  */
-function my_slice (arr, begin, end) {
+export function my_slice (arr, begin, end) {
   if (arr.length === 0 || end === 0 || begin >= arr.length) {
     return [];
   }
@@ -253,7 +253,7 @@ function my_slice (arr, begin, end) {
  * @param {Array} arr 原数组
  * @returns 返回一个新数组
  */
-function my_flatten (arr) {
+export function my_flatten (arr) {
   let result = [];
   arr.forEach(item => {
     if (Array.isArray(item)) {
@@ -271,7 +271,7 @@ function my_flatten (arr) {
  * @param {Array} arr 原数组
  * @returns 返回一个新数组
  */
-function my_flatten2 (arr) {
+export function my_flatten2 (arr) {
   // 拷贝一份
   let result = [...arr];
   while (result.some(item => Array.isArray(item))) {
@@ -287,7 +287,7 @@ function my_flatten2 (arr) {
  * @param {Array} arr 原数组
  * @returns 返回一个新数组
  */
-function my_chunk (arr, size) {
+export function my_chunk (arr, size) {
   let result = [];
   let tmp = [];
   arr.forEach(item => {
@@ -311,7 +311,7 @@ function my_chunk (arr, size) {
  * @param {Array} arr2 原数组2
  * @returns 返回一个新数组
  */
-function my_diffence (arr1 = [], arr2 = []) {
+export function my_diffence (arr1 = [], arr2 = []) {
   if (arr1.length === 0) {
     return [];
   }
@@ -329,7 +329,7 @@ function my_diffence (arr1 = [], arr2 = []) {
  * @param {...args} args 要从原数组中删除的元素
  * @returns 返回所有删除元素组成的新数组，并改变原数组arr
  */
-function my_pull (arr, ...args) {
+export function my_pull (arr, ...args) {
   // 保存要删除的元素
   let result = [];
   for (let i = 0; i < arr.length; i++) {
