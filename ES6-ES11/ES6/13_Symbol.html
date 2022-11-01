@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol</title>
+</head>
+
+<body>
+    <script>
+        //创建Symbol
+        let s = Symbol();
+        // console.log(s, typeof s); // Symbol() 'symbol'
+        let s2 = Symbol('wang'); // 'Symbol(wang)'
+        let s3 = Symbol('wang');
+        console.log(s2 == s3); // false
+
+        //Symbol.for 创建Symbol
+        let s4 = Symbol.for('wang');
+        let s5 = Symbol.for('wang');
+
+        // 不能与其他数据进行运算或比较，也不能与自身进行运算
+        // let result = s + 100;
+        // let result = s > 100;
+        // let result = s + s;
+
+        // 对js的7种数据类型进行总结
+        // USONB  you are so niubility
+        // u  undefined
+        // s  string  symbol
+        // o  object
+        // n  null number
+        // b  boolean
+
+    </script>
+</body>
+
+</html>
