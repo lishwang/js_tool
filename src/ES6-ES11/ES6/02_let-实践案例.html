@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击 DIV 换色</title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+        .item {
+            width: 100px;
+            height: 50px;
+            border: solid 1px rgb(42, 156, 156);
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="page-header">点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        //获取div元素对象
+        let items = document.getElementsByClassName('item');
+
+        //遍历并绑定事件
+        // for (var i = 0; i < items.length; i++) {
+        //     items[i].onclick = function () {
+        //         //修改当前元素的背景颜色
+        //         // this.style.background = 'pink';
+        //         // 点击元素时，循环已经执行完毕，i === 3，并且 var 声明的变量是全局的，相当于 window.i === 3
+        //         // 当执行点击执行函数时，函数内部没有 i ，就会向外层作用域中寻找，最终找到 window.i
+        //         items[i].style.background = 'pink';
+        //     }
+        // }
+
+        //遍历并绑定事件
+        for (let i = 0; i < items.length; i++) {
+            console.log(i);
+            items[i].onclick = function () {
+                // 修改当前元素的背景颜色（方法一）
+                // this.style.background = 'pink';
+                // 块级作用域下，各个作用域下的 i 变量值互不影响，for循环的花括号可以看做一个块级作用域，在这个块级作用域中用let声明i变量并赋值；
+                console.log(i);
+                items[i].style.background = 'pink';
+                i++;
+            }
+        }
+        console.log(i, '未定义')
+
+    </script>
+</body>
+
+</html>

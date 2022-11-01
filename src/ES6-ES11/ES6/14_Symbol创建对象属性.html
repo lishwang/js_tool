@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol 创建对象属性</title>
+</head>
+
+<body>
+    <script>
+        // Symbol 的使用
+
+        let game = {
+            name: '俄罗斯方块',
+            up: function () { },
+            down: function () { }
+        };
+
+        // 向对象中添加方法和属性，表示独一无二的值
+        // 方式一：
+        // 声明一个对象
+        // let methods = {
+        //     up: Symbol(),
+        //     down: Symbol()
+        // };
+
+        // game[methods.up] = function(){
+        //     console.log("我可以改变形状");
+        // }
+
+        // game[methods.down] = function(){
+        //     console.log("我可以快速下降!!");
+        // }
+
+        // console.log(game);
+
+        // 方式二：
+        // Symbol('say') 是一个表达式，是一个动态的，不可以直接当做对象的属性，
+        // 可以在外面加上中括号，作为对象的独一无二的Symbol类型的属性
+        let youxi = {
+            name: "狼人杀",
+            [Symbol('say')]: function () {
+                console.log("我可以发言")
+            },
+            [Symbol('zibao')]: function () {
+                console.log('我可以自爆');
+            }
+        }
+
+        console.log(youxi)
+
+
+    </script>
+</body>
+
+</html>

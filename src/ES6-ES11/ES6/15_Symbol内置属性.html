@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol内置属性</title>
+</head>
+
+<body>
+    <script>
+        // Symbol内置属性 是固定写法，它的整体通常作为对象的一个属性，来改变对象在特定场景下的表现，可以扩展对象的功能；
+        // 属性一：Symbol.hasInstance 可以自己来控制类型检测
+        // class Person{
+        //     static [Symbol.hasInstance](param){
+        //         console.log(param); // {a: 1};
+        //         console.log("我被用来检测类型了");
+        //         return true;
+        //     }
+        // }
+
+        // let o = {a: 1};
+
+        // console.log(o instanceof Person); // true
+
+
+        // 属性二：Symbol.isConcatSpreadable 可以控制数组采用concat合并时，某个数组是否被展开后合并
+        // const arr = [1,2,3];
+        // const arr2 = [4,5,6];
+        // arr2[Symbol.isConcatSpreadable] = false;
+        // console.log(arr.concat(arr2)); // [1,2,3,[4,5,6]]
+    </script>
+</body>
+
+</html>
