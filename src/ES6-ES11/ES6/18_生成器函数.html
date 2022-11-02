@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器</title>
+</head>
+
+<body>
+    <script>
+        // 生成器函数的简单使用
+        function* gen0 () {
+            console.log('hello');
+        }
+        let iterator0 = gen0(); // 此时并没有执行 生成器函数内部的代码；并且返回 迭代器对象；
+        iterator.next(); // 此时才会执行 生成器函数内部的代码；
+
+
+        //生成器其实就是一个特殊的函数
+        //异步编程  纯回调函数  node fs  ajax mongodb
+        // 在生成器函数内部可以执行 yield 语句；yield 语句可以当做函数代码的分隔符；比如 生成器函数中有 3条 yield 语句，就可以把生成器函数中的代码分为 4 部分；执行一次 next 函数，就只执行生成器函数的第一部分，依次类推；
+        function* gen () {
+            // console.log(111);
+            yield '一只没有耳朵';
+            // console.log(222);
+            yield '一只没有尾部';
+            // console.log(333);
+            yield '真奇怪';
+            // console.log(444);
+        }
+
+        let iterator = gen();
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+        //遍历
+        // for(let v of gen()){
+        //     console.log(v);
+        // }
+
+    </script>
+</body>
+
+</html>
