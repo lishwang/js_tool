@@ -17,14 +17,70 @@
         //     console.log(v);
         // }
 
+        // 迭代器的属性名：Symbol.iterator
+        // 迭代器的属性值：以数组xiyou为例：xiyou[Symbol.iterator] ，是一个函数
+        // 迭代器是一个函数，这个函数返回一个对象，执行这个xiyou数组的迭代器函数，返回迭代器对象
         let iterator = xiyou[Symbol.iterator]();
 
         //调用对象的next方法
-        console.log(iterator.next());
-        console.log(iterator.next());
-        console.log(iterator.next());
-        console.log(iterator.next());
-        console.log(iterator.next());
+        // 调用这个迭代器对象的 next 方法，指针自动指向数据结构的第一个成员
+        console.log(iterator.next()); // {done: false, value: "唐僧"}
+        console.log(iterator.next()); // {done: false, value: "孙悟空"}
+        console.log(iterator.next()); // {done: false, value: "猪八戒"}
+        console.log(iterator.next()); // {done: false, value: "沙僧"}
+        console.log(iterator.next()); // {done: true, value: undefined}
+
+
+        /**
+         * 自定义迭代器
+        */
+        let obj = {
+            name: 'wang',
+            children: ['a', 'b', 'c', 'd'],
+            // 自定义迭代器，给obj对象添加迭代器，使得obj对象可以用for...of遍历，且遍历的每一项项为 obj.children 的内容
+            /**
+             * 自定义迭代器：
+             * 1、迭代器是一个函数；
+             * 2、迭代器这个函数的返回值是一个对象；
+             * 3、这个对象中有 next 方法；
+             * 4、这个 next 方法的返回值是一个对象，这个对象中包含遍历的每一项，执行 next 方法返回这个对象: {value: 每一项, done: false}；
+             * 5、每次执行 next 方法索引值加1，直到当前索引等于要遍历的内容的长度，此时执行next方法，返回一个对象: {value: undefined, done:true};
+            */
+            [Symbol.iterator]: function () {
+                // 初始化索引
+                let _index = 0;
+                // 保存this指向
+                let _this = this;
+                // 迭代器函数返回一个对象
+                return {
+                    // 对象中包含 next 方法
+                    next: function () {
+                        if (_index < _this.children.length) {
+                            // next方法返回一个对象，这个对象中包含value遍历的元素，done是否遍历结束
+                            let result = {
+                                value: _this.children[_index],
+                                done: false,
+                            }
+                            // 索引自增，遍历下一项
+                            _index++;
+                            // 返回
+                            return result;
+                        } else {
+                            // 遍历结束，执行next返回对象
+                            return {
+                                value: undefined,
+                                done: true,
+                            }
+                        }
+
+                    },
+                }
+            },
+        };
+        // 自定义遍历对象，实例遍历对象中的children属性值
+        for (let v of obj) {
+            console.log(v); // a b c d
+        }
     </script>
 </body>
 
