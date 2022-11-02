@@ -9,6 +9,8 @@
 
 <body>
     <script>
+        // 执行 next 函数时也可以传递参数，而且这个参数将作为上一个 yield 语句的返回结果；
+        // 即，第二个 next 函数的传参作为第一个 yield 语句的返回结果
         //模拟获取  用户数据  订单数据  商品数据 
         function getUsers () {
             setTimeout(() => {
@@ -34,6 +36,7 @@
 
         function* gen () {
             let users = yield getUsers();
+            console.log(users); // '用户数据'
             let orders = yield getOrders();
             let goods = yield getGoods();
         }
