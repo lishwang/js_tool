@@ -17,18 +17,20 @@
 
         //添加方法，实例上可以看到
         Phone.prototype.call = function () {
-            console.log("我可以打电话!!");
+            console.log("call");
         }
 
-        // 添加方法，实例上不可见
+        // 添加方法，实例上不可见（实例对象身上是没有构造函数身上的属性和方法的，称为静态成员）
         Phone.use = function () {
-            console.log('play game')
+            console.log('use')
         }
 
         //实例化对象
         let Huawei = new Phone('华为', 5999);
-        Huawei.call();
-        console.log(Huawei);
+        Huawei.call(); // 'call'
+        Phone.use(); // 'use'
+        // Huawei.use(); // 报错
+
 
         // ES6 class定义类
         class Shouji {
@@ -41,12 +43,12 @@
             // 添加方法，实例上可以看到
             //方法必须使用该语法, 不能使用 ES5 的对象完整形式
             call () {
-                console.log("我可以打电话!!");
+                console.log("call");
             }
 
             // 添加方法，实例上不可见
             static use () {
-                console.log('play game');
+                console.log('use');
             }
         }
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象继承</title>
+</head>
+
+<body>
+    <script>
+        //手机
+        function Phone (brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+
+        Phone.prototype.call = function () {
+            console.log("我可以打电话");
+        }
+
+        //智能手机
+        function SmartPhone (brand, price, color, size) {
+            // 先调用父级构造函数里的初始化代码
+            Phone.call(this, brand, price);
+            // 子构造函数初始化
+            this.color = color;
+            this.size = size;
+        }
+
+        //设置子级构造函数的原型，这样子类的实例对象上面就会有父级原型上的方法和属性；
+        SmartPhone.prototype = new Phone;
+        // 矫正子级构造函数的指向，这样子类的实例对象的构造函数的指向就是SmartPhone，如果这一行代码不写，就指向Phone；
+        SmartPhone.prototype.constructor = SmartPhone;
+
+        //声明子类的方法
+        SmartPhone.prototype.photo = function () {
+            console.log("我可以拍照")
+        }
+
+        SmartPhone.prototype.playGame = function () {
+            console.log("我可以玩游戏");
+        }
+
+        const chuizi = new SmartPhone('锤子', 2499, '黑色', '5.5inch');
+
+        /**
+         * 父级构造函数原型上的方法和属性可以在实例的隐式原型的隐式原型上找到（chuizi.__proto__.__proto__）
+         * 子级构造函数原型上的方法和属性可以在实例的隐式原型上找到（chuizi.__proto__）
+        */
+        console.log(chuizi);
+
+    </script>
+</body>
+
+</html>
