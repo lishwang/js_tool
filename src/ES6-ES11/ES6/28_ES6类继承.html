@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>类继承-2</title>
+    <title>类继承</title>
 </head>
 
 <body>
@@ -24,6 +24,7 @@
         class SmartPhone extends Phone {
             //构造方法
             constructor (brand, price, color, size) {
+                // super(xxx); 相当于调用了父类的constructor方法，并传入了参数
                 super(brand, price);// Phone.call(this, brand, price)
                 this.color = color;
                 this.size = size;
@@ -37,13 +38,14 @@
                 console.log("玩游戏");
             }
 
+            // 重写父类中的call方法
             call () {
                 console.log('我可以进行视频通话');
             }
         }
 
         const xiaomi = new SmartPhone('小米', 799, '黑色', '4.7inch');
-        // console.log(xiaomi);
+        console.log(xiaomi);
         xiaomi.call();
         xiaomi.photo();
         xiaomi.playGame();

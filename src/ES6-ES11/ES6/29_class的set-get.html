@@ -11,20 +11,27 @@
     <script>
         // get 和 set  
         class Phone {
+            // 只要读取实例对象中的 price 属性，就会执行这个方法，这个方法的返回值就是读取到的 price 属性的值；
             get price () {
-                console.log("价格属性被读取了");
-                return 'iloveyou';
+                console.log("price属性被读取了");
+                return 'price';
+            }
+            get wang () {
+                console.log("wang属性被读取了");
+                return 'wang';
             }
 
+            // 只要修改实例对象中的 price 属性，就会执行这个方法
             set price (newVal) {
-                console.log('价格属性被修改了');
+                console.log('price属性被修改了');
             }
         }
 
         //实例化对象
         let s = new Phone();
 
-        console.log(s.price);
+        console.log(s.price); // 'price'
+        console.log(s.wang); // 'wang'
         s.price = 'free';
     </script>
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>对象继承</title>
+    <title>构造函数继承</title>
 </head>
 
 <body>
@@ -29,9 +29,9 @@
         }
 
         //设置子级构造函数的原型，这样子类的实例对象上面就会有父级原型上的方法和属性；
-        SmartPhone.prototype = new Phone;
+        // SmartPhone.prototype = new Phone;
         // 矫正子级构造函数的指向，这样子类的实例对象的构造函数的指向就是SmartPhone，如果这一行代码不写，就指向Phone；
-        SmartPhone.prototype.constructor = SmartPhone;
+        // SmartPhone.prototype.constructor = SmartPhone;
 
         //声明子类的方法
         SmartPhone.prototype.photo = function () {
