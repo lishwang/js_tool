@@ -4,9 +4,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 //统一暴露
-var school = '尚硅谷';
+var school = 'wang';
 
-function findJob() {
+function findJob () {
     console.log("我们可以帮助你找工作!!");
 }
 

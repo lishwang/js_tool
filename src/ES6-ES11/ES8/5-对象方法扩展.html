@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES8 对象方法扩展</title>
+</head>
+
+<body>
+    <script>
+        //声明对象
+        const school = {
+            name: "wang",
+            cities: ['北京', '上海', '深圳'],
+            xueke: ['前端', 'Java', '大数据', '运维']
+        };
+
+        //获取对象所有的键
+        // console.log(Object.keys(school));
+        //获取对象所有的值
+        // console.log(Object.values(school));
+        // entries获取对象键和值形成的二维数组，方便用于创建 Map 数据类型
+        // console.log(Object.entries(school)); // [[key1, value1], [key2, value2]]
+        // 创建 Map
+        // const m = new Map(Object.entries(school));
+        // console.log(m);
+        // console.log(m.get('cities'));
+
+        // 对象属性的描述对象，可以拿到对象中的一些 enumerable枚举 等属性特性，与下面通过 Object.create 方法创建的对象的属性值内容相同；
+        // Object.getOwnPropertyDescriptors拿到对象属性的描述对象后可以对该对象做深拷贝；
+        // console.log(Object.getOwnPropertyDescriptors(school));
+
+        // Object.create(原型对象，描述对象);
+        // const obj = Object.create(null, {
+        //     name: {
+        //         //设置值
+        //         value: 'wang',
+        //         //属性特性
+        //         writable: true, // 是否可写（可修改）
+        //         configurable: true, // 是否可删除
+        //         enumerable: true // 是否可枚举（是否可通过for...in、Object.keys()遍历到）
+        //     }
+        // });
+
+        const obj = Object.create(null, {
+            name: {
+                //设置值
+                value: 'wang',
+                //属性特性
+                writable: false, // 是否可写（可修改）
+                configurable: false, // 是否可删除
+                enumerable: true // 是否可枚举（是否可通过for...in遍历到）
+            }
+        });
+        obj.name = 111;
+        console.log(obj);
+        delete obj.name;
+        console.log(obj);
+        for (const key in obj) {
+            console.log(key);
+        }
+    </script>
+</body>
+
+</html>
