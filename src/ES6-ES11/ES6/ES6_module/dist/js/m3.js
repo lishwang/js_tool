@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 //默认暴露
 exports.default = {
-    school: 'ATGUIGU',
-    change: function change() {
+    school: 'aswang',
+    change: function change () {
         console.log("我们可以改变你!!");
     }
 };

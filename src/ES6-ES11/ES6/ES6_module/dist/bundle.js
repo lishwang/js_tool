@@ -74,7 +74,7 @@
 		});
 		//默认暴露
 		exports.default = {
-			school: 'ATGUIGU',
+			school: 'aswang',
 			change: function change () {
 				console.log("我们可以改变你!!");
 			}
