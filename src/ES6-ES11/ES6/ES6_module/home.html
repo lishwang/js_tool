@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        本文件主要内容：
+        使用babel将ES6比较新的特性的语法转换成浏览器可以识别的ES5的语法，然后在对代码进行打包，
+        形成最终的一个单独的文件，然后在页面进行引入即可使用这些js文件的内容；
+     -->
+    <!-- 
+        1. 安装工具 npm i babel-cli babel-preset-env browserify -D
+            babel-cli 是babel的命令行工具；
+            babel-preset-env 是一个预设包，能够把最新的ES特性转换成ES5的语法；
+            browserify 是一个打包工具，不用配置，在项目中一般使用webpack；
+        2. 编译 npx babel src/js -d dist/js --presets=babel-preset-env
+            src/js 要被babel语法转换的文件；
+            dist/js 被babel语法转换后存在哪个文件夹下
+             --presets=babel-preset-env babel的传参，表示预设，一般写在babel的配置文件内，也可在命令行传参
+        3. 打包 npx browserify dist/js/app.js -o dist/bundle.js
+            dist/js/app.js 打包的入口文件；
+            dist/bundle.js 打包后输出的文件存放位置；
+     -->
+    <script src="dist/bundle.js"></script>
+</body>
+
+</html>
