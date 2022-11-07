@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则扩展-反向断言</title>
+</head>
+
+<body>
+    <script>
+        // 声明字符串，提取字符串中的 555 
+        let str = 'JS5211314你知道么555啦啦啦';
+        // 正向断言（根据当前要匹配的后面的内容，来判断当前要匹配的内容是不是满足条件的）
+        const reg1 = /\d+(?=啦)/;
+        const result1 = reg1.exec(str);
+        console.log(result1); // 555
+
+        // 反向断言（根据当前要匹配的前面的内容，来判断当前要匹配的内容是不是满足条件的）
+        const reg2 = /(?<=么)\d+/;
+        const result2 = reg2.exec(str);
+        console.log(result2); // 555
+    </script>
+</body>
+
+</html>
