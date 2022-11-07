@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flat 与 flatMap</title>
 </head>
+
 <body>
     <script>
         //flat 平
-        //将多维数组转化为低位数组
-        // const arr = [1,2,3,4,[5,6]];
-        // const arr = [1,2,3,4,[5,6,[7,8,9]]];
-        //参数为深度 是一个数字
-        // console.log(arr.flat(2));  
+        // 将多维数组转化为低维数组
+        const arr = [1, [2]];
+        const arr1 = [1, [2, [3]]];
+        // 参数为深度 是一个数字
+        console.log(arr1.flat(2)); // [1,2,3]
 
         //flatMap
-        const arr = [1,2,3,4];
-        const result = arr.flatMap(item => [item * 10]);
-        console.log(result);
+        const arr2 = [1, 2];
+        // flatMap()  相当于 map 方法与 flat 方法的结合，如果 直接使用 map 处理数组返回的结果是一个二维数组，可以使用 flatMap 代替 map 来处理这个数组，得到的结果就是一个一维数组
+        const result = arr2.flatMap(item => [[item * 10]]);
+        // 比直接使用 map 降低一维
+        console.log(result); // [[10], [20]]
     </script>
 </body>
+
 </html>
