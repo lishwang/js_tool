@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.fromEntries</title>
+</head>
+
+<body>
+    <script>
+        // fromEntries 和 entries 是一对逆运算
+        // fromEntries 将二维数组或者Map转换成对象
+        // entries 将对象转换成二维数组
+        // 二维数组
+        const result1 = Object.fromEntries([
+            ['name', 'wang'],
+            ['sss', '1,2,a,b']
+        ]);
+        console.log(result1); // {name: "wang", sss: "1,2,a,b"}
+
+        // Map
+        const m = new Map();
+        m.set('name', 'aswang');
+        const result2 = Object.fromEntries(m);
+        console.log(result2); // {name: "aswang"}
+
+        // Object.entries (ES8)
+        const arr = Object.entries({
+            name: "wang"
+        })
+        console.log(arr); // [['name', 'wang']]
+    </script>
+</body>
+
+</html>
