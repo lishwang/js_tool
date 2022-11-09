@@ -21,13 +21,15 @@
             </li>
         </ul>`;
 
-        //声明正则
-        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+        // 声明正则
+        // const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+        // 正则命名分组
+        const reg = /<li>.*?<a>(?<name>.*?)<\/a>.*?<p>(?<date>.*?)<\/p>/sg
 
         //调用方法
         const result = str.matchAll(reg);
 
-        // for(let v of result){
+        // for(let v of result) {
         //     console.log(v);
         // }
 
